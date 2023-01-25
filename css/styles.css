@@ -93,7 +93,7 @@ body.dark{
   .form__input {
     width: 100%;
     height: 56px;
-    padding-left: 3.5em;
+    padding: 0em 1.5em 0em 3.5em;
     color: var(--text-color);
     background-color: inherit;
     box-shadow: var(--box-shadow);
@@ -136,6 +136,7 @@ body.dark{
     display: flex;
     font-size: 50px;
     margin: 50px auto;
+    justify-content: center;
 }
 
 .main__spinner--off{
@@ -210,6 +211,7 @@ body.dark{
 .country__border{
     display: flex;
     margin-top: 50px;
+    margin-bottom: 40px;
     align-items: center;
     gap: 10px;
 

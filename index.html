@@ -23,7 +23,7 @@
             <label for="search-input" class="form__label">
             <i class="fas fa-search"></i>
         </label>
-        <input type="text" id="search-input" class="form__input" placeholder="Search for a country...">
+        <input type="search" id="search-input" class="form__input" placeholder="Search for a country...">
         </div>
         <select name="region" id="form-region" class="form__select">
         <option value="default">Filter by Region</option>
@@ -36,7 +36,9 @@
     </form>
 
     <main class="main">
-        <i class="fas fa-spinner fa-pulse main__spinner"></i>
+        <div class="main__spinner">
+        <i class="fas fa-spinner fa-pulse"></i>
+        </div>
         <div id="cards" class="cards"></div>
     </main>
 
@@ -46,8 +48,9 @@
         </div>
     </section>
 
-    <script src="https://kit.fontawesome.com/a0ab449b77.js"
-    crossorigin="anonymous"></script>
+    
+    <script src="https://kit.fontawesome.com/bd0ce9d719.js" crossorigin="anonymous"></script>
+
     <script src="js/index.js"></script>
 </body>
 </html>

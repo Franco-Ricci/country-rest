@@ -7,6 +7,7 @@ const searchInput = document.getElementById("search-input");
 
 const cards = document.getElementById("cards");
 const modalSec = document.querySelector(".modal__content");
+const spinner = document.querySelector(".main__spinner")
 let cardContent;
 
 
@@ -124,13 +125,7 @@ cardContent = document.querySelectorAll(".card");
                data[i].topLevelDomain
              }</p></span>
              <p class="tittle__desc">Currencies: ${
-               currency !== false
-                 ? `${currency
-                     .map(
-                       (cur) => `<span class="text__desc">${cur.name}</span>`
-                     )
-                     .join(" , ")}`
-                 : `<span  class="text__desc">no currencies`
+               currency !== undefined ? `${currency.map((cur) => `<span class="text__desc">${cur.name}</span>`).join(" , ")}`: `<span  class="text__desc">no currencies`
              }</span>
              <p class="tittle__desc">Languages: ${langs
                .map((lang) => `<span class="text__desc">${lang.name}</span>`)
@@ -147,7 +142,7 @@ cardContent = document.querySelectorAll(".card");
                 ? `${data[i].borders
                     .map((bord) => `<p class="text__border">${bord}</p>`)
                     .join(" ")}`
-                : `<p>No bordering countries</p>`
+                : `<p class="text__desc">No bordering countries</p>`
             }</p>
             
             </div>
@@ -163,8 +158,7 @@ cardContent = document.querySelectorAll(".card");
         cards.classList.remove("card__country--modal");
         cards.classList.add("cards");
         modalSec.textContent = "";
-        document.querySelector(".main__spinner").style.display = "block";
-
+        spinner.classList.remove("main__spinner--off")
         fetchData();
       });
     });
@@ -187,12 +181,12 @@ const fetchData = async (region = "", name = "") => {
 
   if (request.status == 404) {
     modalSec.innerHTML = `<p class="notFound">Country not found</p>`;
-    document.querySelector(".main__spinner").style.display = "none";
+    spinner.classList.add("main__spinner--off")
   }
 
   drawCountries(data);
 
-  document.querySelector(".main__spinner").style.display = "none";
+  spinner.classList.add("main__spinner--off")
 };
 
 fetchData();
@@ -208,6 +202,5 @@ formRegion.addEventListener("change", (e) => {
   fetchData(region);
   modalSec.textContent = "";
 });
-
 
 
