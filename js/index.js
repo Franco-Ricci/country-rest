@@ -36,6 +36,7 @@ const drawCountries = (countries) => {
     const cardFlag = document.createElement("img");
     cardFlag.classList.add("card__img");
     cardFlag.src = country.flag;
+    cardFlag.alt = "country flag"
     card.appendChild(cardFlag);
 
     const cardBody = document.createElement("div");
@@ -97,7 +98,7 @@ cardContent = document.querySelectorAll(".card");
             <div class="country__container">
    
              <div class="country__img">
-             <img class="country__flag" src=${data[i].flag}></img> 
+             <img class="country__flag" src=${data[i].flag} alt="country flag"></img> 
              </div>
              <div class="country__content">
             
